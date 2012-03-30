@@ -1,1 +1,11 @@
-Simple example showing how to use media types for response versioning using Jersey and Groovy
+Simple example showing how to use media types for response versioning using:
+
+* Jersey
+
+* Groovy
+
+* REST assured
+
+* Embedded Jetty
+
+Look ma, no XML and no Spring :)

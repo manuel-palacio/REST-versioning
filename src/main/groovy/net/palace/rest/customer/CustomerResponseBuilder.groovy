@@ -1,7 +1,7 @@
-package net.palace.rest
+package net.palace.rest.customer
 
-import net.palace.rest.serializer.customer.CustomerSerializer
-import net.palace.rest.serializer.customer.Serializer
+import net.palace.rest.customer.serializer.CustomerSerializer
+import net.palace.rest.customer.serializer.Serializer
 import org.reflections.Reflections
 
 import javax.ws.rs.core.Response

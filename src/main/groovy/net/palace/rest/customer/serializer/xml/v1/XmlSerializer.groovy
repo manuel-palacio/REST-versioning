@@ -1,9 +1,9 @@
-package net.palace.rest.serializer.customer.xml.v1
+package net.palace.rest.customer.serializer.xml.v1
 
 import groovy.xml.MarkupBuilder
-import net.palace.rest.Customer
-import net.palace.rest.serializer.customer.CustomerSerializer
-import net.palace.rest.serializer.customer.Serializer
+import net.palace.rest.customer.Customer
+import net.palace.rest.customer.serializer.CustomerSerializer
+import net.palace.rest.customer.serializer.Serializer
 
 @Serializer(version="v1",format="xml")
 class XmlSerializer implements CustomerSerializer{
@@ -12,7 +12,7 @@ class XmlSerializer implements CustomerSerializer{
     def xml = new MarkupBuilder(writer)
 
 
-    void addHomeAddress(Customer customer) {
+    private addHomeAddress(Customer customer) {
 
         xml.customer {
 
@@ -25,6 +25,6 @@ class XmlSerializer implements CustomerSerializer{
 
     String serialize(Customer customer) {
         addHomeAddress(customer)
-        return writer.toString()
+        writer.toString()
     }
 }

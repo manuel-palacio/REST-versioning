@@ -1,4 +1,4 @@
-package net.palace.rest
+package net.palace.rest.customer
 
 import com.sun.jersey.spi.resource.Singleton
 
@@ -15,7 +15,7 @@ import static net.palace.rest.RestPrecondition.*
 @Singleton
 class CustomerResource {
 
-    List<Customer> customers = []
+    def customers = []
 
     @PostConstruct
     void init() {

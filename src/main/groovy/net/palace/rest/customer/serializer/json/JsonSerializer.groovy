@@ -1,12 +1,11 @@
-package net.palace.rest.serializer.customer.json
+package net.palace.rest.customer.serializer.json
 
-import net.palace.rest.Customer
-import net.palace.rest.serializer.customer.CustomerSerializer
-import net.palace.rest.serializer.customer.Serializer
+import net.palace.rest.customer.Customer
+import net.palace.rest.customer.serializer.CustomerSerializer
+import net.palace.rest.customer.serializer.Serializer
 
 
 @Serializer(version="v1",format="json")
-
 class JsonSerializer implements CustomerSerializer {
 
 

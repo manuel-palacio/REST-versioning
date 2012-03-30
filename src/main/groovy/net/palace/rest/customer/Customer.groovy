@@ -1,4 +1,4 @@
-package net.palace.rest
+package net.palace.rest.customer
 
 
 class Customer {

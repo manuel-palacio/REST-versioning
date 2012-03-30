@@ -1,4 +1,4 @@
-package net.palace.rest.serializer.customer
+package net.palace.rest.customer.serializer
 
 import java.lang.annotation.Retention
 import java.lang.annotation.RetentionPolicy

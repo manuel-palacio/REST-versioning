@@ -25,18 +25,24 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="groovy-1.8.0" level="application" />
+    <orderEntry type="library" exported="" name="jersey-server-1.12" level="project" />
+    <orderEntry type="library" exported="" name="jersey-servlet-1.12" level="project" />
+    <orderEntry type="library" exported="" name="servlet-api-3.0.pre4" level="project" />
+    <orderEntry type="library" scope="TEST" name="junit-4.10" level="project" />
+    <orderEntry type="library" exported="" name="reflections-0.9.5" level="project" />
+    <orderEntry type="library" exported="" name="jsr311-api-1.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="jetty-7.0.0.pre5" level="project" />
+    <orderEntry type="library" scope="TEST" name="hamcrest-core-1.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="rest-assured-1.6" level="project" />
+    <orderEntry type="library" name="jetty-util-7.0.0.pre5" level="project" />
+    <orderEntry type="library" scope="TEST" name="hamcrest-core-1.2.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="hamcrest-library-1.2.1" level="project" />
     <orderEntry type="library" name="Maven: com.sun.jersey:jersey-server:1.12" level="project" />
     <orderEntry type="library" name="Maven: asm:asm:3.1" level="project" />
     <orderEntry type="library" name="Maven: com.sun.jersey:jersey-core:1.12" level="project" />
     <orderEntry type="library" name="Maven: com.sun.jersey:jersey-servlet:1.12" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-grizzly2:1.12" level="project" />
-    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-http:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-framework:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.glassfish.gmbal:gmbal-api-only:3.0.0-b023" level="project" />
-    <orderEntry type="library" name="Maven: org.glassfish.external:management-api:3.0.0-b012" level="project" />
-    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-http-server:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-rcm:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:1.8.4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:1.8.6" level="project" />
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Maven: asm:asm-commons:3.2" level="project" />
     <orderEntry type="library" name="Maven: asm:asm-tree:3.2" level="project" />

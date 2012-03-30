@@ -1,13 +1,10 @@
 package net.palace.rest
 
-import com.sun.jersey.core.spi.factory.ResponseBuilderImpl
 import net.palace.rest.serializer.customer.CustomerSerializer
 import net.palace.rest.serializer.customer.Serializer
 import org.reflections.Reflections
 
 import javax.ws.rs.core.Response
-
-import static javax.ws.rs.core.Response.Status.OK
 
 class CustomerResponseBuilder {
 
@@ -50,7 +47,7 @@ class CustomerResponseBuilder {
 
     Response build() {
         CustomerSerializer serializer = serializerMap["${responseVersion.name()}:${format.name()}"]
-        new ResponseBuilderImpl().entity(serializer.serialize(customer)).status(OK).build()
+        Response.ok(serializer.serialize(customer)).build()
 
     }
 }

@@ -21,7 +21,7 @@ class RestVersionTest {
     public static void startServer() throws Exception {
         server = new Server(8080);
         Context root = new Context(server, "/resources", Context.SESSIONS);
-        ServletContainer servletContainer = new ServletContainer(new PackagesResourceConfig("net.palace.rest"))
+        ServletContainer servletContainer = new ServletContainer(new PackagesResourceConfig("net.palace.rest.customer"))
         root.addServlet(new ServletHolder(servletContainer), "/*");
         server.start()
     }

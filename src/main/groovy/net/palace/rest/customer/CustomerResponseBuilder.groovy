@@ -11,7 +11,7 @@ class CustomerResponseBuilder {
     static Map<String, CustomerSerializer> serializerMap = [:]
 
     static {
-        Reflections reflections = new Reflections("net.palace.rest");
+        Reflections reflections = new Reflections("net.palace.rest.customer");
         Set<Class<?>> annotated = reflections.getTypesAnnotatedWith(Serializer.class)
 
         annotated.each {

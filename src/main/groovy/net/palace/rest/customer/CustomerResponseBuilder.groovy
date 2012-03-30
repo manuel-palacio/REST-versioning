@@ -21,15 +21,15 @@ class CustomerResponseBuilder {
             serializerMap["${annotation.version()}:${annotation.format()}"] = it.newInstance()
         }
 
-        if(serializerMap.isEmpty()) throw new IllegalStateException("Cannot initialize response builder")
+        if (serializerMap.isEmpty()) throw new IllegalStateException("Cannot initialize response builder")
 
     }
 
     Customer customer
 
-    String format
+    def format
 
-    String responseVersion = "v1"
+    def responseVersion = "v1"
 
     CustomerResponseBuilder withCustomer(Customer customer) {
         this.customer = customer
@@ -38,26 +38,17 @@ class CustomerResponseBuilder {
 
 
     CustomerResponseBuilder withMediaType(String mediaType) {
-        getVersion(mediaType)
-        getFormat(mediaType)
-
-        return this
-    }
-
-    private void getVersion(String mediaType) {
         def matcher = (mediaType =~ /(\w\d)/)
         if (matcher.size() > 0) {
             this.responseVersion = matcher[0][1]
         }
 
-    }
-
-    private void getFormat(String mediaType) {
-        def matcher = (mediaType =~ /(\+\w*)/)
+        matcher = (mediaType =~ /(\+\w*)/)
         if (matcher.size() > 0) {
             this.format = matcher[0][1].substring(1)
         }
 
+        return this
     }
 
     Response build() {

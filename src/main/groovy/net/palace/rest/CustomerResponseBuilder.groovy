@@ -23,9 +23,9 @@ class CustomerResponseBuilder {
 
     Customer customer
 
-    String format
+    String format = "xml"
 
-    String responseVersion
+    String responseVersion = "v1"
 
     CustomerResponseBuilder withCustomer(Customer customer) {
         this.customer = customer
@@ -33,37 +33,27 @@ class CustomerResponseBuilder {
     }
 
 
-
     CustomerResponseBuilder withMediaType(String mediaType) {
-        this.responseVersion = getVersion(mediaType)
-        this.format = getFormat(mediaType)
+        getVersion(mediaType)
+        getFormat(mediaType)
 
         return this
     }
 
-    private getVersion(String mediaType) {
+    private void getVersion(String mediaType) {
         def matcher = (mediaType =~ /(\w\d)/)
-        String version
         if (matcher.size() > 0) {
-            version = matcher[0][1]
-        } else {
-            version = "v1"
+            this.responseVersion = matcher[0][1]
         }
-
-        return version
 
     }
 
-    private getFormat(String mediaType) {
+    private void getFormat(String mediaType) {
         def matcher = (mediaType =~ /(\+\w*)/)
-        String format
         if (matcher.size() > 0) {
-            format = matcher[0][1]
-        } else {
-            return "xml"
+            this.format = matcher[0][1].substring(1)
         }
 
-        return format.substring(1)
     }
 
     Response build() {

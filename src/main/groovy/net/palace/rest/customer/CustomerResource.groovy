@@ -15,7 +15,7 @@ import static net.palace.rest.RestPrecondition.*
 @Singleton
 class CustomerResource {
 
-    def customers = []
+    List<Customer> customers = []
 
     @PostConstruct
     void init() {

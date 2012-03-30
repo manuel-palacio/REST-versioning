@@ -5,6 +5,7 @@ import net.palace.rest.customer.serializer.Serializer
 import org.reflections.Reflections
 
 import javax.ws.rs.core.Response
+import javax.ws.rs.WebApplicationException
 
 class CustomerResponseBuilder {
 
@@ -57,9 +58,12 @@ class CustomerResponseBuilder {
     }
 
     Response build() {
+
         CustomerSerializer serializer = serializerMap["${responseVersion.toUpperCase()}:${format.toUpperCase()}"]
+
+        if(!customer || !serializer) throw new WebApplicationException(Response.Status.PRECONDITION_FAILED)
+
+
         Response.ok(serializer.serialize(customer)).build()
-
     }
-
 }

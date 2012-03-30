@@ -10,7 +10,7 @@ import java.lang.annotation.ElementType
 @Target([ElementType.TYPE])
 public @interface Serializer {
 
-    String version();
+    String version() default "v1";
 
-    String format();
+    String format() default "xml";
 }

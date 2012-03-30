@@ -18,14 +18,16 @@ class CustomerResponseBuilder {
 
         annotated.each {
             def annotation = it.getAnnotation(Serializer.class)
-            serializerMap["${annotation.version().toUpperCase()}:${annotation.format().toUpperCase()}"] = it.newInstance()
+            serializerMap["${annotation.version()}:${annotation.format()}"] = it.newInstance()
         }
+
+        if(serializerMap.isEmpty()) throw new IllegalStateException("Cannot initialize response builder")
 
     }
 
     Customer customer
 
-    String format = "xml"
+    String format
 
     String responseVersion = "v1"
 
@@ -60,7 +62,7 @@ class CustomerResponseBuilder {
 
     Response build() {
 
-        CustomerSerializer serializer = serializerMap["${responseVersion.toUpperCase()}:${format.toUpperCase()}"]
+        CustomerSerializer serializer = serializerMap["$responseVersion:$format"]
 
         Response.ok(checkNotNull(serializer).serialize(checkNotNull(customer))).build()
     }

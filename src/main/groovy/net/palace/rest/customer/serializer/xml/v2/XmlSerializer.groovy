@@ -6,7 +6,7 @@ import net.palace.rest.customer.serializer.CustomerSerializer
 import net.palace.rest.customer.serializer.Serializer
 
 
-@Serializer(version = "v2", format = "xml")
+@Serializer(version = "v2")
 class XmlSerializer implements CustomerSerializer {
 
     def writer = new StringWriter()

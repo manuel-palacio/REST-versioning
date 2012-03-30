@@ -15,37 +15,6 @@ import static net.palace.rest.RestPrecondition.*
 @Singleton
 class CustomerResource {
 
-    enum Format {
-        JSON, XML
-
-        static Format getValue(String acceptHeader) {
-           if(acceptHeader.endsWith("json")){
-                JSON
-            }
-
-            return XML
-        }
-
-    }
-
-    enum ResponseVersion {
-        V1, V2
-
-        static ResponseVersion getValue(String acceptHeader) {
-            def matcher = (acceptHeader =~ /(\w\d)/)
-            String version
-            if (matcher.size() > 0) {
-                version = matcher[0][1]
-            }
-
-            if (version) {
-                valueOf(version.toUpperCase())
-            } else {
-                V1
-            }
-        }
-    }
-
     List<Customer> customers = []
 
     @PostConstruct
@@ -56,12 +25,11 @@ class CustomerResource {
 
     @GET
     @Path("{id}")
-    public Response getCustomer(@PathParam("id") String id, @HeaderParam("Accept") String acceptHeader) {
+    public Response getCustomer(@PathParam("id") String id, @HeaderParam("Accept") String mediaType) {
 
         Customer customer = checkNotNull(customers.find {it.id == id})
 
-        new CustomerResponseBuilder().withCustomer(customer).withFormat(Format.getValue(acceptHeader)).
-                withVersion(ResponseVersion.getValue(acceptHeader)).build()
+        new CustomerResponseBuilder().withCustomer(customer).withMediaType(mediaType).build()
 
     }
 }

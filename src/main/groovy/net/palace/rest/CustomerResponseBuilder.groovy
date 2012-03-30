@@ -23,31 +23,53 @@ class CustomerResponseBuilder {
 
     Customer customer
 
-    CustomerResource.Format format
+    String format
 
-    CustomerResource.ResponseVersion responseVersion
+    String responseVersion
 
     CustomerResponseBuilder withCustomer(Customer customer) {
         this.customer = customer
         return this
     }
 
-    CustomerResponseBuilder withFormat(CustomerResource.Format format) {
-        this.format = format
+
+
+    CustomerResponseBuilder withMediaType(String mediaType) {
+        this.responseVersion = getVersion(mediaType)
+        this.format = getFormat(mediaType)
 
         return this
     }
 
-    CustomerResponseBuilder withVersion(CustomerResource.ResponseVersion version) {
-        this.responseVersion = version
+    private getVersion(String mediaType) {
+        def matcher = (mediaType =~ /(\w\d)/)
+        String version
+        if (matcher.size() > 0) {
+            version = matcher[0][1]
+        } else {
+            version = "v1"
+        }
 
-        return this
+        return version
+
     }
 
+    private getFormat(String mediaType) {
+        def matcher = (mediaType =~ /(\+\w*)/)
+        String format
+        if (matcher.size() > 0) {
+            format = matcher[0][1]
+        } else {
+            return "xml"
+        }
+
+        return format.substring(1)
+    }
 
     Response build() {
-        CustomerSerializer serializer = serializerMap["${responseVersion.name()}:${format.name()}"]
+        CustomerSerializer serializer = serializerMap["${responseVersion.toUpperCase()}:${format.toUpperCase()}"]
         Response.ok(serializer.serialize(customer)).build()
 
     }
+
 }

@@ -31,19 +31,22 @@ class RestVersionTest {
 
     @Test
     public void getCustomerAsJson() {
-        given("application/vnd.mycompany.myapp+json").expect().header("Content-Type","application/vnd.mycompany.myapp+json").body("customer.homeAddress", equalTo("home")).
+        given("application/vnd.mycompany.myapp+json").expect().header("Content-Type","application/vnd.mycompany.myapp+json").
+                body("customer.homeAddress", equalTo("home")).
                 when().get("/resources/customer/1");
     }
 
     @Test
     public void getCustomerAsXml() {
-        given("application/vnd.mycompany.myapp+xml").expect().header("Content-Type","application/vnd.mycompany.myapp+xml").body("customer.homeAddress", equalTo("home")).
+        given("application/vnd.mycompany.myapp+xml").expect().header("Content-Type","application/vnd.mycompany.myapp+xml").
+                body("customer.homeAddress", equalTo("home")).
                 when().get("/resources/customer/1");
     }
 
     @Test
     public void getCustomerAsXmlV2() {
-        given("application/vnd.mycompany.myapp-v2+xml").expect().header("Content-Type","application/vnd.mycompany.myapp-v2+xml").body(hasXPath("/customer/addresses/homeAddress")).
+        given("application/vnd.mycompany.myapp-v2+xml").expect().header("Content-Type","application/vnd.mycompany.myapp-v2+xml").
+                body(hasXPath("/customer/addresses/homeAddress")).
                 when().get("/resources/customer/1");
     }
 

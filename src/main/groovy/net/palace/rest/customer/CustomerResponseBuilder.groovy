@@ -29,7 +29,7 @@ class CustomerResponseBuilder {
 
     def format
 
-    def responseVersion = "v1"
+    def responseVersion = "v1"  //default
 
     CustomerResponseBuilder withCustomer(Customer customer) {
         this.customer = customer

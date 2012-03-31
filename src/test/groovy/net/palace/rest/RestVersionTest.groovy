@@ -31,9 +31,8 @@ class RestVersionTest {
     }
 
     @Test
-    @Ignore
     public void getCustomerJson() {
-        given("application/vnd.mycompany.myapp+json").expect().body("homeAddress", equalTo("home")).
+        given("application/vnd.mycompany.myapp+json").expect().body("customer.homeAddress", equalTo("home")).
                 when().get("/resources/customer/1");
     }
 

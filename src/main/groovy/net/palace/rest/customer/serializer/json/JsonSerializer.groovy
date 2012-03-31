@@ -5,11 +5,25 @@ import net.palace.rest.customer.serializer.CustomerSerializer
 import net.palace.rest.customer.serializer.Serializer
 
 
-@Serializer(version="v1",format="json")
+@Serializer(format = "json")
 class JsonSerializer implements CustomerSerializer {
 
+    def builder = new groovy.json.JsonBuilder()
+
+
+    private addHomeAddress(Customer customer) {
+
+        builder.customer {
+
+            name(customer.name)
+            email(customer.email)
+            homeAddress(customer.homeAddress)
+        }
+
+    }
 
     String serialize(Customer customer) {
-        return null  //To change body of implemented methods use File | Settings | File Templates.
+        addHomeAddress(customer)
+        builder.toString()
     }
 }

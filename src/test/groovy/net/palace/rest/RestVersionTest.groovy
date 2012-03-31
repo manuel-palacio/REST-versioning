@@ -12,7 +12,6 @@ import org.mortbay.jetty.servlet.ServletHolder
 import static com.jayway.restassured.RestAssured.given
 import static org.hamcrest.Matchers.equalTo
 import static org.hamcrest.Matchers.hasXPath
-import org.junit.Ignore
 
 class RestVersionTest {
     static Server server;
@@ -31,7 +30,7 @@ class RestVersionTest {
     }
 
     @Test
-    public void getCustomerJson() {
+    public void getCustomerAsJson() {
         given("application/vnd.mycompany.myapp+json").expect().body("customer.homeAddress", equalTo("home")).
                 when().get("/resources/customer/1");
     }

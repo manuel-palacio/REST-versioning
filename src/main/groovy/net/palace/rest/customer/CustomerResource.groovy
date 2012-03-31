@@ -10,6 +10,7 @@ import javax.ws.rs.PathParam
 import javax.ws.rs.core.Response
 
 import static net.palace.rest.RestPrecondition.*
+import static net.palace.rest.customer.DSL.*
 
 @Path("/customer")
 @Singleton
@@ -29,20 +30,9 @@ class CustomerResource {
 
         Customer customer = checkNotNull(customers.find {it.id == id})
 
-        respond().with(customer).and(mediaType)
+        respond().with(customer).for(mediaType)
 
     }
 
-    /**
-     * Example of fluid interface with groovy
-     * @return
-     */
-    def respond() {
-        [with: { Customer customer ->
-            [and: {String mediaType ->
-                new CustomerResponseBuilder().withCustomer(customer).withMediaType(mediaType).build()
-            }]
-        }]
 
-    }
 }

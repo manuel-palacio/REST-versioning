@@ -4,7 +4,7 @@ The important thing is that we always have one URI to represent our resource and
 
 A URI expresses identity and therefore it doesn't change when a new version is introduced.
 
-Still, some people insist in handling versioning using the URI. This would give us:
+Still, some people insist in handling versioning using the URI. I.e:
 
 GET /customer/v2/1 HTTP/1.1
 
@@ -15,7 +15,7 @@ The version is leaking into the interface when it should not.
 To sum it up: the Accept header solves the versioning problem for GET and the Content-Type header solves it for POST so use them.
 
 
-This is a example showing how this could be done using:
+This is an example showing how this could be done using:
 
 * Jersey
 

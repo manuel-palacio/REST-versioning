@@ -7,7 +7,7 @@ class DSL {
      * @return
      */
     static def respond() {
-        [with: { Customer customer ->
+        [withEntity: { Customer customer ->
             [for: {String mediaType ->
                 new CustomerResponseBuilder().withCustomer(customer).withMediaType(mediaType).build()
             }]

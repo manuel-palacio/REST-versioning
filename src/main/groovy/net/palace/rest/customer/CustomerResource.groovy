@@ -29,7 +29,20 @@ class CustomerResource {
 
         Customer customer = checkNotNull(customers.find {it.id == id})
 
-        new CustomerResponseBuilder().withCustomer(customer).withMediaType(mediaType).build()
+        respond().with(customer).and(mediaType)
+
+    }
+
+    /**
+     * Example of fluid interface with groovy
+     * @return
+     */
+    def respond() {
+        [with: { Customer customer ->
+            [and: {String mediaType ->
+                new CustomerResponseBuilder().withCustomer(customer).withMediaType(mediaType).build()
+            }]
+        }]
 
     }
 }

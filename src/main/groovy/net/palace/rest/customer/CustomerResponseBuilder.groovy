@@ -10,7 +10,7 @@ import static net.palace.rest.RestPrecondition.checkNotNull
 
 class CustomerResponseBuilder {
 
-    static Map<String, CustomerSerializer> serializerMap = [:]
+    static Map<String, CustomerSerializer> serializers = [:]
 
     static {
         Reflections reflections = new Reflections("net.palace.rest.customer");
@@ -18,10 +18,10 @@ class CustomerResponseBuilder {
 
         annotated.each {
             def annotation = it.getAnnotation(Serializer.class)
-            serializerMap["${annotation.version()}:${annotation.format()}"] = it.newInstance()
+            serializers["${annotation.version()}:${annotation.format()}"] = it.newInstance()
         }
 
-        if (serializerMap.isEmpty()) throw new IllegalStateException("Cannot initialize response builder")
+        if (serializers.isEmpty()) throw new IllegalStateException("Cannot initialize response builder")
 
     }
 
@@ -53,7 +53,7 @@ class CustomerResponseBuilder {
 
     Response build() {
 
-        CustomerSerializer serializer = serializerMap["$responseVersion:$format"]
+        CustomerSerializer serializer = serializers["$responseVersion:$format"]
 
         Response.ok(checkNotNull(serializer).serialize(checkNotNull(customer))).build()
     }

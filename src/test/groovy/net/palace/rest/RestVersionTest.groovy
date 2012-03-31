@@ -9,9 +9,9 @@ import org.mortbay.jetty.Server
 import org.mortbay.jetty.servlet.Context
 import org.mortbay.jetty.servlet.ServletHolder
 
-import static org.hamcrest.Matchers.*
-import static com.jayway.restassured.matcher.RestAssuredMatchers.*
-import static com.jayway.restassured.RestAssured.*
+import static com.jayway.restassured.RestAssured.given
+import static org.hamcrest.Matchers.equalTo
+import static org.hamcrest.Matchers.hasXPath
 
 class RestVersionTest {
     static Server server;

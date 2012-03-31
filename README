@@ -1,11 +1,28 @@
-Simple example showing how to use media types for response versioning using:
+It's not exactly news anymore that the most appropriate way to handle versioning of a REST API is by using the Accept and Content-Type headers.
+
+The important thing is that we always have one URI to represent our resource and still can version it appropriately.
+
+A URI expresses identity and therefore it doesn't change when a new version is introduced.
+
+Still, some people insist in handling versioning using the URI. This would give us:
+
+GET /customer/v2/1 HTTP/1.1
+
+This is pretty bad because you end up having different URIs pointing at the same resource which could be a maintenance headache.
+
+The version is leaking into the interface when it should not.
+
+To sum it up: the Accept header solves the versioning problem for GET and the Content-Type header solves it for POST so use them.
+
+
+This is a example showing how this could be done using:
 
 * Jersey
 
 * Groovy
 
-* REST assured
+* REST assured for testing
 
-* Embedded Jetty
+* Jetty embedded
 
-Look ma, no XML and no Spring :)
+No Spring, no XML, no heavy container.

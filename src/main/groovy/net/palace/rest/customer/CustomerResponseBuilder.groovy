@@ -39,12 +39,12 @@ class CustomerResponseBuilder {
 
     CustomerResponseBuilder withMediaType(String mediaType) {
         def matcher = (mediaType =~ /(\w\d)/)
-        if (matcher.size() > 0) {
+        if (matcher) {
             this.responseVersion = matcher[0][1]
         }
 
         matcher = (mediaType =~ /(\+\w*)/)
-        if (matcher.size() > 0) {
+        if (matcher) {
             this.format = matcher[0][1].substring(1)
         }
 

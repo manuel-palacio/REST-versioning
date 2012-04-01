@@ -21,7 +21,7 @@ This is an example showing how this could be done using:
 
 * Groovy
 
-* Gremlin (embedded graph database)
+* Gremlin (embedded graph database) Check https://github.com/tinkerpop/gremlin/wiki
 
 * REST assured for testing
 

@@ -7,6 +7,7 @@ import org.reflections.Reflections
 import javax.ws.rs.core.Response
 
 import static net.palace.rest.RestPrecondition.checkNotNull
+import com.tinkerpop.blueprints.pgm.Vertex
 
 class CustomerResponseBuilder {
 
@@ -25,13 +26,13 @@ class CustomerResponseBuilder {
 
     }
 
-    Customer customer
+    def customer
 
     def format
 
     def responseVersion = "v1"  //default
 
-    CustomerResponseBuilder withCustomer(Customer customer) {
+    CustomerResponseBuilder withCustomer(def customer) {
         this.customer = customer
         return this
     }

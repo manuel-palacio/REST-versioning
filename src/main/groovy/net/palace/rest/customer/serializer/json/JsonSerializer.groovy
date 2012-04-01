@@ -1,9 +1,7 @@
 package net.palace.rest.customer.serializer.json
 
-import net.palace.rest.customer.Customer
 import net.palace.rest.customer.serializer.CustomerSerializer
 import net.palace.rest.customer.serializer.Serializer
-
 
 @Serializer(format = "json")
 class JsonSerializer implements CustomerSerializer {
@@ -11,7 +9,7 @@ class JsonSerializer implements CustomerSerializer {
     def builder = new groovy.json.JsonBuilder()
 
 
-    private addHomeAddress(Customer customer) {
+    private addHomeAddress(def customer) {
 
         builder.customer {
 
@@ -22,7 +20,7 @@ class JsonSerializer implements CustomerSerializer {
 
     }
 
-    String serialize(Customer customer) {
+    String serialize(def customer) {
         addHomeAddress(customer)
         builder.toString()
     }

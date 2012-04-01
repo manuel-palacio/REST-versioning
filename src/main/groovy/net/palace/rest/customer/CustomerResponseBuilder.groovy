@@ -7,7 +7,6 @@ import org.reflections.Reflections
 import javax.ws.rs.core.Response
 
 import static net.palace.rest.RestPrecondition.checkNotNull
-import com.tinkerpop.blueprints.pgm.Vertex
 
 class CustomerResponseBuilder {
 

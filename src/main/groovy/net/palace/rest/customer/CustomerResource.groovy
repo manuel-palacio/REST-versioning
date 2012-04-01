@@ -1,6 +1,8 @@
 package net.palace.rest.customer
 
 import com.sun.jersey.spi.resource.Singleton
+import com.tinkerpop.blueprints.pgm.impls.tg.TinkerGraph
+import com.tinkerpop.gremlin.groovy.Gremlin
 
 import javax.annotation.PostConstruct
 import javax.ws.rs.GET
@@ -9,11 +11,8 @@ import javax.ws.rs.Path
 import javax.ws.rs.PathParam
 import javax.ws.rs.core.Response
 
-import static net.palace.rest.RestPrecondition.*
-import static net.palace.rest.customer.DSL.*
-import com.tinkerpop.blueprints.pgm.impls.tg.TinkerGraph
-import com.tinkerpop.gremlin.groovy.Gremlin
-import com.tinkerpop.blueprints.pgm.impls.tg.TinkerGraphFactory
+import static net.palace.rest.RestPrecondition.checkNotNull
+import static net.palace.rest.customer.DSL.respond
 
 @Path("/customer")
 @Singleton
@@ -40,7 +39,7 @@ class CustomerResource {
     @Path("{id}")
     public Response getCustomer(@PathParam("id") String id, @HeaderParam("Accept") String mediaType) {
 
-        def customer = checkNotNull(graphDb.getVertex(id))
+        def customer = checkNotNull(graphDb.v(id))
 
         respond().withEntity(customer).withVersion(mediaType)
 

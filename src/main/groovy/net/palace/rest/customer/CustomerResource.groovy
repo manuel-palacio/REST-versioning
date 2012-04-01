@@ -30,7 +30,7 @@ class CustomerResource {
 
         Customer customer = checkNotNull(customers.find {it.id == id})
 
-        respond().withEntity(customer).for(mediaType)
+        respond().withEntity(customer).withVersion(mediaType)
 
     }
 }

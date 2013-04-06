@@ -25,7 +25,7 @@ class RestVersionTest {
         server.start()
     }
 
-    private def given(String mediaType) {
+    private static def given(String mediaType) {
         given().header("Accept", mediaType)
     }
 

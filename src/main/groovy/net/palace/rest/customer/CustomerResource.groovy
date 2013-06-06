@@ -1,7 +1,7 @@
 package net.palace.rest.customer
 
 import com.sun.jersey.spi.resource.Singleton
-import com.tinkerpop.blueprints.pgm.impls.tg.TinkerGraph
+import com.tinkerpop.blueprints.impls.tg.TinkerGraph
 import com.tinkerpop.gremlin.groovy.Gremlin
 
 import javax.annotation.PostConstruct

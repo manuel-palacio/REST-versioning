@@ -1,6 +1,5 @@
 package net.palace.rest.customer
 
-import com.sun.jersey.spi.resource.Singleton
 import com.tinkerpop.blueprints.impls.tg.TinkerGraph
 import com.tinkerpop.gremlin.groovy.Gremlin
 
@@ -14,8 +13,7 @@ import javax.ws.rs.core.Response
 import static net.palace.rest.RestPrecondition.checkNotNull
 import static net.palace.rest.customer.DSL.respond
 
-@Path("/customer")
-@Singleton
+@Path("customer")
 class CustomerResource {
 
     static {

@@ -25,7 +25,7 @@ class RestVersionTest extends JerseyTest {
     }
 
     @Test
-    public void get_customer_as_json_succeeds() {
+    public void can_get_customer_as_json() {
         given("application/vnd.mycompany.myapp+json").
                 expect().
                 header("Content-Type", "application/vnd.mycompany.myapp+json").
@@ -35,7 +35,7 @@ class RestVersionTest extends JerseyTest {
     }
 
     @Test
-    public void get_customer_as_xml_succeeds() {
+    public void can_get_customer_as_xml() {
         given("application/vnd.mycompany.myapp+xml").
                 expect().
                 header("Content-Type", "application/vnd.mycompany.myapp+xml").
@@ -44,7 +44,7 @@ class RestVersionTest extends JerseyTest {
     }
 
     @Test
-    public void get_customer_as_xml_v2_succeeds() {
+    public void can_get_customer_as_xml_v2() {
         given("application/vnd.mycompany.myapp-v2+xml").
                 expect().
                 header("Content-Type", "application/vnd.mycompany.myapp-v2+xml").
@@ -53,7 +53,7 @@ class RestVersionTest extends JerseyTest {
     }
 
     @Test
-    public void get_unknown_customer_produces_404() {
+    public void get_unknown_customer_returns_404() {
         given("application/vnd.mycompany.myapp-v2+xml").
                 expect().
                 statusCode(404).

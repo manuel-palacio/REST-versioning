@@ -24,7 +24,7 @@
         <profile>
             <id>jenkins</id>
             <properties>
-                <performancetest.webservice.host>tomcat7-example-webapp.mlex.cloudbees.net
+                <performancetest.webservice.host>restversioning.palace.eu.cloudbees.net
                 </performancetest.webservice.host>
                 <performancetest.webservice.port>80</performancetest.webservice.port>
                 <performancetest.threadCount>5</performancetest.threadCount>
